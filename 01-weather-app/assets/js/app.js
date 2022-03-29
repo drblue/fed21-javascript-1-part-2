@@ -20,6 +20,9 @@ const renderCurrentWeather = data => {
 		`<li><img src="https://openweathermap.org/img/wn/${condition.icon}@2x.png" title="${condition.main}">${condition.description}</li>`
 	)
 
+	// get freshness
+	const freshness = moment.unix(data.dt).format('YYYY-MM-DD HH:mm:ss')
+
 	// output weather data
 	document.querySelector('#forecast').innerHTML = `
 		<div class="card">
@@ -44,6 +47,8 @@ const renderCurrentWeather = data => {
 				<ul class="conditions">
 					${conditions.join('')}
 				</ul>
+
+				<p class="text-muted small">${freshness}</p>
 			</div>
 		</div>
 	`
