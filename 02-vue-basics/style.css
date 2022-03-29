@@ -1,0 +1,41 @@
+/**
+ * Generic styles
+ */
+
+body {
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 0.75em;
+}
+
+hr {
+	border-top-width: 2px;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	width: 100%;
+}
+
+#app {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.grey-box {
+	background-color: var(--bs-light);
+	color: var(--bs-body-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vmin;
+	width: 70vmin;
+}
