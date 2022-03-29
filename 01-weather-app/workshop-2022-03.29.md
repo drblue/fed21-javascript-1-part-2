@@ -6,7 +6,9 @@ Hantera att en stad inte går att hitta och visa ett bättre fel på sidan.
 
 ## 2. Lägg in en loading-spinner
 
-Visa en loading-spinner medan man väntar på resultat. Loading-spinner bör även visas om man gör en ny sökning (och därmed ska det gamla vädret döljas)
+Visa en loading-spinner medan man väntar på resultat. Loading-spinner bör även visas om man gör en ny sökning (och därmed ska det gamla vädret döljas).
+
+Förslag på spinners: <https://tobiasahlin.com/spinkit/>
 
 ## 3. Visa väderförhållanden
 
