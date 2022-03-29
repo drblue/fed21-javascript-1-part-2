@@ -53,9 +53,16 @@ document.querySelector('#search-form').addEventListener('submit', async e => {
 		return
 	}
 
+	// hide old forecast anad show spinner
+	document.querySelector('#spinner').classList.remove('hide')
+	document.querySelector('#forecast').classList.add('hide')
+
 	// do search
-	console.log("Searching for city:", query)
 	const data = await getCurrentWeather(query)
+
+	// hide spinner
+	document.querySelector('#spinner').classList.add('hide')
+	document.querySelector('#forecast').classList.remove('hide')
 
 	// check if city was found
 	if (data.cod == 200) {

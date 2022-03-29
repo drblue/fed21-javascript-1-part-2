@@ -17,6 +17,9 @@ const getCurrentWeather = async query => {
 	// convert response from JSON
 	const data = await response.json()
 
+	// fake slow api
+	// await new Promise(r => setTimeout(r, 1500))
+
 	// return current weather
 	return data
 }
