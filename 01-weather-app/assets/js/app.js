@@ -20,10 +20,15 @@ const renderCurrentWeather = data => {
 		`<li><img src="https://openweathermap.org/img/wn/${condition.icon}@2x.png" title="${condition.main}">${condition.description}</li>`
 	)
 
+	const now = Math.round(Date.now() / 1000)
+	const banner = now > data.sys.sunrise && now < data.sys.sunset
+		? 'assets/images/day.svg'
+		: 'assets/images/night.svg'
+
 	// output weather data
 	document.querySelector('#forecast').innerHTML = `
 		<div class="card">
-			<img src="assets/images/forecast-banner.png" class="card-img-top">
+			<img src="${banner}" class="card-img-top">
 			<div class="card-body">
 				<h5 class="card-title" id="location">
 					<span id="city">${data.name}</span>,
