@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 	width: 50vmax;
 }
 
-#forecast #city {
+#forecast #location {
 	font-size: 1.2em;
 	text-transform: uppercase;
 }
