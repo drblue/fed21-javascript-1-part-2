@@ -13,6 +13,13 @@ const app = Vue.createApp({
 
 			username: "Anonymous",
 
+			todos: [
+				{ title: "Make coffee", completed: true },
+				{ title: "Drink coffee", completed: false },
+				{ title: "Drink MOAR coffee", completed: false },
+				{ title: "Drink ALL THE coffee", completed: false },
+			],
+
 			salary: 10,
 
 			showBox: true,

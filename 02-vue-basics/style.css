@@ -24,6 +24,11 @@ hr {
 	align-items: center;
 }
 
+.completed {
+	font-style: italic;
+	color: lightgreen;
+}
+
 .bad-salary {
 	color: orange;
 }
