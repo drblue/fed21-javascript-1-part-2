@@ -20,10 +20,6 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
-		getSalaryClass() {
-			return this.salary >= 20 ? "good-salary" : "bad-salary"
-		},
-
 		getSalaryImg() {
 			return this.salary >= 50
 				? "https://c.tenor.com/t5jP_vn9sdQAAAAd/money-printer-fed.gif"
@@ -49,6 +45,11 @@ const app = Vue.createApp({
 		updateCoords(e) {
 			this.x = e.offsetX
 			this.y = e.offsetY
+		}
+	},
+	computed: {
+		salaryClass() {
+			return this.salary >= 20 ? "good-salary" : "bad-salary"
 		}
 	}
 })
