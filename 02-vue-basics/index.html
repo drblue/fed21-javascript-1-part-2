@@ -56,13 +56,13 @@
 			<button class="btn btn-primary btn-lg" @click="toggleBox">🏃🏻</button>
 		</div>
 
-		<div class="grey-box" v-if="showBox" @mousemove="updateCoords">
+		<div class="grey-box" v-show="showBox" @mousemove="updateCoords">
 			<div class="coords">
 				{{ x }}, {{ y }}
 			</div>
 		</div>
 
-		<p v-else>No 📦 for you!</p>
+		<p v-show="!showBox">No 📦 for you!</p>
 
 	</div>
 
