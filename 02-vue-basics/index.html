@@ -26,12 +26,27 @@
 
 		<div class="buttons">
 			<div class="mb-1">
-				<button class="btn btn-primary btn-lg" @click="increaseSalary()">Raise 1 &euro; 🤑</button>
-				<button class="btn btn-warning btn-lg" @click="decreaseSalary()">Decrease 1 &euro; 😢</button>
+				<button
+					class="btn btn-primary btn-lg"
+					@click="increaseSalary()"
+					@click.alt="increaseSalary(9)"
+				>Raise 1 &euro; 🤑</button>
+
+				<button
+					class="btn btn-warning btn-lg"
+					@click="decreaseSalary()"
+				>Decrease 1 &euro; 😢</button>
 			</div>
 			<div>
-				<button class="btn btn-success btn-lg" @click="increaseSalary(5)">Increase 5 &euro; 🤑🤑🤑</button>
-				<button class="btn btn-danger btn-lg" @click="decreaseSalary(5)">Decrease 5 &euro; 😢😢😢</button>
+				<button
+					class="btn btn-success btn-lg"
+					@click="increaseSalary(5)"
+				>Increase 5 &euro; 🤑🤑🤑</button>
+
+				<button
+					class="btn btn-danger btn-lg"
+					@click="decreaseSalary(5)"
+				>Decrease 5 &euro; 😢😢😢</button>
 			</div>
 		</div>
 
