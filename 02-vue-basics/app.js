@@ -11,6 +11,19 @@ const app = Vue.createApp({
 			msg: "Hello, Vue!",
 			salary: 10,
 		}
+	},
+	methods: {
+		increaseSalary(amount = 1) {
+			this.salary += amount
+		},
+		decreaseSalary(amount = 1) {
+			if (this.salary - amount < 5) {
+				this.salary = 5
+				return
+			}
+
+			this.salary -= amount
+		},
 	}
 })
 
