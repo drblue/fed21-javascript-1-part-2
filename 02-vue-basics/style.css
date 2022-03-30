@@ -24,6 +24,13 @@ hr {
 	align-items: center;
 }
 
+.bad-salary {
+	color: orange;
+}
+.good-salary {
+	color: lightgreen;
+}
+
 .buttons {
 	display: flex;
 	flex-direction: column;

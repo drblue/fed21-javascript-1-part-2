@@ -20,6 +20,16 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
+		getSalaryClass() {
+			return this.salary >= 20 ? "good-salary" : "bad-salary"
+		},
+
+		getSalaryImg() {
+			return this.salary >= 50
+				? "https://c.tenor.com/t5jP_vn9sdQAAAAd/money-printer-fed.gif"
+				: "https://memegenerator.net/img/instances/48464525.jpg"
+		},
+
 		increaseSalary(amount = 1) {
 			this.salary += amount
 		},

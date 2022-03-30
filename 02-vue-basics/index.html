@@ -22,7 +22,9 @@
 
 		<hr />
 
-		<p>Salary per hour: {{ salary }} &euro;</p>
+		<p>Salary per hour: <span :class="getSalaryClass()">{{ salary }} &euro;</span></p>
+
+		<img :src="getSalaryImg()" class="img-fluid" />
 
 		<div class="buttons">
 			<div class="mb-1">
