@@ -15,17 +15,19 @@
 	<div id="app" class="container">
 		<h1>Vue.js basics</h1>
 
-		<p>You have clicked the button: CLICKS times.</p>
-		<button class="btn btn-success btn-lg">Click meee! 😃</button>
+		<h2>{{ msg }}</h2>
+
+		<p>You have clicked the button: {{ count }} times.</p>
+		<button class="btn btn-success btn-lg" @click="count++">Click meee! 😃</button>
 
 		<hr />
 
-		<p>Salary per hour: 10 &euro;</p>
+		<p>Salary per hour: {{ salary }} &euro;</p>
 
 		<div class="buttons">
 			<div class="mb-1">
-				<button class="btn btn-primary btn-lg">Raise 1 &euro; 🤑</button>
-				<button class="btn btn-warning btn-lg">Decrease 1 &euro; 😢</button>
+				<button class="btn btn-primary btn-lg" @click="salary++">Raise 1 &euro; 🤑</button>
+				<button class="btn btn-warning btn-lg" @click="salary--">Decrease 1 &euro; 😢</button>
 			</div>
 			<div>
 				<button class="btn btn-success btn-lg">Increase 5 &euro; 🤑🤑🤑</button>
@@ -43,6 +45,10 @@
 
 	</div>
 
+	<!-- Vue 3 -->
+	<script src="https://unpkg.com/vue@3"></script>
+
+	<!-- App -->
 	<script src="app.js"></script>
 </body>
 </html>
