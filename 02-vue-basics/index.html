@@ -52,11 +52,17 @@
 
 		<hr />
 
-		<div class="grey-box" @mousemove="updateCoords">
+		<div class="mb-3">
+			<button class="btn btn-primary btn-lg" @click="toggleBox">🏃🏻</button>
+		</div>
+
+		<div class="grey-box" v-if="showBox" @mousemove="updateCoords">
 			<div class="coords">
 				{{ x }}, {{ y }}
 			</div>
 		</div>
+
+		<p v-else>No 📦 for you!</p>
 
 	</div>
 

@@ -13,6 +13,8 @@ const app = Vue.createApp({
 
 			salary: 10,
 
+			showBox: true,
+
 			x: 0,
 			y: 0,
 		}
@@ -28,6 +30,10 @@ const app = Vue.createApp({
 			}
 
 			this.salary -= amount
+		},
+
+		toggleBox() {
+			this.showBox = !this.showBox
 		},
 
 		updateCoords(e) {
