@@ -31,11 +31,9 @@
 
 		<div id="todos-container" v-show="todos.length">
 			<h2>Todos</h2>
-
 			<ul class="todolist">
 				<li
-					v-for="item in todos"
-					:class="{ done: item.completed }"
+					v-for="item in unfinishedTodos"
 				>
 						<span @click="toggleTodo(item)" class="todo-title">
 							{{ item.title }}
@@ -45,6 +43,19 @@
 			</ul>
 
 			<p class="text-muted small">You got {{ unfinishedTodosCount }} todos left</p>
+
+			<h3>🇫🇮 Finished todos</h3>
+			<ul class="todolist">
+				<li
+					v-for="item in finishedTodos"
+					class="done"
+				>
+						<span @click="toggleTodo(item)" class="todo-title">
+							{{ item.title }}
+						</span>
+						<span @click="deleteTodo(item)" class="todo-delete">🚮</span>
+				</li>
+			</ul>
 		</div>
 
 		<img

@@ -39,6 +39,14 @@ const app = Vue.createApp({
 	},
 
 	computed: {
+		finishedTodos() {
+			return this.todos.filter(todo => todo.completed)
+		},
+
+		unfinishedTodos() {
+			return this.todos.filter(todo => !todo.completed)
+		},
+
 		unfinishedTodosCount() {
 			return this.todos.reduce((previousValue, todo) => {
 				if (todo.completed) {
