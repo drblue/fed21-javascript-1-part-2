@@ -24,7 +24,7 @@ hr {
 	align-items: center;
 }
 
-.completed {
+.done {
 	font-style: italic;
 	color: var(--bs-success);
 	text-decoration: line-through;

@@ -34,7 +34,7 @@
 		<ul>
 			<li
 				v-for="item in todos"
-				:class="item.completed ? 'completed' : ''"
+				:class="{ done: item.completed }"
 			>
 					<span @click="toggleTodo(item)">
 						{{ item.title }}
