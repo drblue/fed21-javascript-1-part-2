@@ -14,14 +14,18 @@
 <body class="bg-dark text-light">
 	<div id="app" class="container">
 
-		<div id="joke-wrapper">
-			<p id="joke">Why did the man name his dogs Rolex and Timex? Because they were watch dogs.</p>
+		<div id="joke-wrapper" v-show="joke && !loading">
+			<p id="joke">{{ joke }}</p>
 
-			<button @click="" class="btn btn-light btn-lg">Moar 🤣!</button>
+			<button @click="getDadJoke" class="btn btn-light btn-lg">Moar 🤣!</button>
 		</div>
 
-		<div class="loading" style="display: none;">
+		<div class="loading" v-show="loading">
 			<p>Loading... 🤔</p>
+		</div>
+
+		<div class="alert alert-danger" v-show="error">
+			DANGER WILL ROBINSON! Could not fetch dad joke 😭!
 		</div>
 
 	</div>
