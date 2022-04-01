@@ -27,6 +27,10 @@ const app = Vue.createApp({
 
 			// clear new todo title input
 			this.newTodoTitleInput = ""
+		},
+
+		toggleTodo(todo) {
+			todo.completed = !todo.completed
 		}
 	},
 
