@@ -16,15 +16,17 @@
 		<h1>Vue.js Simple Todos</h1>
 
 		<div class="mb-3">
-			<div class="input-group">
-				<input
-					type="text"
-					class="form-control"
-					placeholder="Got moar stuff to do?"
-					v-model="newTodoTitleInput"
-				/>
-				<button class="btn btn-primary" @click="createNewTodo">Create</button>
-			</div>
+			<form @submit.prevent="createNewTodo">
+				<div class="input-group">
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Got moar stuff to do?"
+						v-model="newTodoTitleInput"
+					/>
+					<button type="submit" class="btn btn-primary">Create</button>
+				</div>
+			</form>
 		</div>
 
 		<h2>Todos</h2>
