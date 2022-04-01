@@ -35,6 +35,10 @@ const app = Vue.createApp({
 	},
 
 	computed: {
+		unfinishedTodosCount() {
+			const unfinishedTodos = this.todos.filter(todo => !todo.completed)
+			return unfinishedTodos.length
+		}
 	}
 })
 
