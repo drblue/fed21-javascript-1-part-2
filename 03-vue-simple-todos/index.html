@@ -29,21 +29,29 @@
 			</form>
 		</div>
 
-		<h2>Todos</h2>
+		<div id="todos-container" v-show="todos.length">
+			<h2>Todos</h2>
 
-		<ul class="todolist">
-			<li
-				v-for="item in todos"
-				:class="{ done: item.completed }"
-			>
-					<span @click="toggleTodo(item)" class="todo-title">
-						{{ item.title }}
-					</span>
-					<span @click="deleteTodo(item)" class="todo-delete">🚮</span>
-			</li>
-		</ul>
+			<ul class="todolist">
+				<li
+					v-for="item in todos"
+					:class="{ done: item.completed }"
+				>
+						<span @click="toggleTodo(item)" class="todo-title">
+							{{ item.title }}
+						</span>
+						<span @click="deleteTodo(item)" class="todo-delete">🚮</span>
+				</li>
+			</ul>
 
-		<p class="text-muted small">You got {{ unfinishedTodosCount }} todos left</p>
+			<p class="text-muted small">You got {{ unfinishedTodosCount }} todos left</p>
+		</div>
+
+		<img
+			src="https://media1.giphy.com/media/dV8K4Rwzeuvn3JyJO9/200w.gif?cid=82a1493baj1dqol4w5y21arhbnwl23jz7ha1f1l673k4z6mk&rid=200w.gif&ct=g"
+			class="img-fluid"
+			v-show="!todos.length"
+		/>
 
 	</div>
 
