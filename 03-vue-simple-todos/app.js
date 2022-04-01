@@ -7,6 +7,7 @@
 const app = Vue.createApp({
 	data() {
 		return {
+			newTodoTitleInput: "",
 			todos: [
 				{ title: "Make coffee", completed: true },
 				{ title: "Drink coffee", completed: false },
@@ -17,6 +18,16 @@ const app = Vue.createApp({
 	},
 
 	methods: {
+		createNewTodo() {
+			// create new todo and push it to the list of todos
+			this.todos.push({
+				title: this.newTodoTitleInput,
+				completed: false
+			})
+
+			// clear new todo title input
+			this.newTodoTitleInput = ""
+		}
 	},
 
 	computed: {

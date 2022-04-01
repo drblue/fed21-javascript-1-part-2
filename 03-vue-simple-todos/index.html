@@ -21,9 +21,9 @@
 					type="text"
 					class="form-control"
 					placeholder="Got moar stuff to do?"
-					v-model=""
+					v-model="newTodoTitleInput"
 				/>
-				<button class="btn btn-primary">Create</button>
+				<button class="btn btn-primary" @click="createNewTodo">Create</button>
 			</div>
 		</div>
 
