@@ -1,0 +1,31 @@
+/**
+ * Generic styles
+ */
+
+html,
+body,
+#app {
+	min-height: 100vh;
+}
+
+#app {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+}
+
+.loading {
+	font-size: 4rem;
+}
+
+#joke-wrapper {
+	font-size: 2rem;
+	text-align: center;
+}
+
+#joke-wrapper p#joke {
+	color: #ccc;
+	font-style: italic;
+	margin-bottom: 2em;
+}
