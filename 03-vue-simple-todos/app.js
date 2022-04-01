@@ -43,6 +43,10 @@ const app = Vue.createApp({
 			return this.todos.filter(todo => todo.completed)
 		},
 
+		newTodoIsValid() {
+			return this.newTodoTitleInput.length >= 3
+		},
+
 		unfinishedTodos() {
 			return this.todos.filter(todo => !todo.completed)
 		},

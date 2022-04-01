@@ -24,7 +24,13 @@
 						placeholder="Got moar stuff to do?"
 						v-model="newTodoTitleInput"
 					/>
-					<button type="submit" class="btn btn-primary">Create</button>
+					<button
+						type="submit"
+						class="btn btn-primary"
+						v-bind:disabled="!newTodoIsValid"
+					>
+						Create
+					</button>
 				</div>
 			</form>
 		</div>
