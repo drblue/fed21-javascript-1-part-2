@@ -32,6 +32,14 @@
 						Create
 					</button>
 				</div>
+				<div class="validation-error">
+					<span
+						class="small text-danger"
+						v-if="newTodoTitleInput.length > 0 && newTodoTitleInput.length < 3"
+					>
+						Please enter at least 3 characters.
+					</span>
+				</div>
 			</form>
 		</div>
 

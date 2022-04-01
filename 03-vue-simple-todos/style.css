@@ -24,6 +24,10 @@ hr {
 	align-items: center;
 }
 
+.validation-error {
+	min-height: 1.5em;
+}
+
 .todolist .done .todo-title {
 	font-style: italic;
 	color: var(--bs-success);
