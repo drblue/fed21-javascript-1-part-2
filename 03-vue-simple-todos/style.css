@@ -24,8 +24,13 @@ hr {
 	align-items: center;
 }
 
-.done {
+.todolist .done .todo-title {
 	font-style: italic;
 	color: var(--bs-success);
 	text-decoration: line-through;
+}
+
+.todolist .todo-delete {
+	cursor: pointer;
+	margin-left: 0.5em;
 }

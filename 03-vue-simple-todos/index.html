@@ -31,14 +31,15 @@
 
 		<h2>Todos</h2>
 
-		<ul>
+		<ul class="todolist">
 			<li
 				v-for="item in todos"
 				:class="{ done: item.completed }"
 			>
-					<span @click="toggleTodo(item)">
+					<span @click="toggleTodo(item)" class="todo-title">
 						{{ item.title }}
 					</span>
+					<span @click="deleteTodo(item)" class="todo-delete">🚮</span>
 			</li>
 		</ul>
 
