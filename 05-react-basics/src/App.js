@@ -28,6 +28,30 @@ const App = () => {
 
 			<hr />
 
+			<p>Salary per hour: SALARY &euro;</p>
+
+			<div className="buttons">
+				<div className="mb-1">
+					<button
+						className="btn btn-primary btn-lg"
+					>Raise 1 &euro; 🤑</button>
+					<button
+						className="btn btn-warning btn-lg"
+					>Decrease 1 &euro; 😢</button>
+				</div>
+
+				<div className="mb-1">
+					<button
+						className="btn btn-success btn-lg"
+					>Raise 5 &euro; 🤑🤑🤑</button>
+					<button
+						className="btn btn-danger btn-lg"
+					>Decrease 5 &euro; 😢😢😢</button>
+				</div>
+			</div>
+
+			<hr />
+
 			<h2>Posts</h2>
 
 			<ul>
