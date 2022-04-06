@@ -29,6 +29,10 @@ const App = () => {
 		setPosts([...posts])
 	}
 
+	const deletePost = (clickedPost) => {
+		setPosts(posts.filter(post => post !== clickedPost))
+	}
+
 	return (
 		<div className="App">
 			<h1>React Basics</h1>
@@ -89,6 +93,11 @@ const App = () => {
 									className="btn btn-success btn-sm"
 									onClick={() => addLike(post)}
 								>👍🏻</button>
+
+								<button
+									className="btn btn-danger btn-sm"
+									onClick={() => deletePost(post)}
+								>🗑</button>
 							</li>
 						)
 					)
