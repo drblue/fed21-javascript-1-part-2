@@ -26,7 +26,7 @@ const App = () => {
 
 	const addLike = (post) => {
 		post.likes++
-		setPosts(posts)
+		setPosts([...posts])
 	}
 
 	return (
