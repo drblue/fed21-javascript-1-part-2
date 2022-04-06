@@ -1,0 +1,33 @@
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 0.75em;
+}
+
+hr {
+	border-top-width: 2px;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	width: 100%;
+}
+
+#app {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.validation-error {
+	min-height: 1.5em;
+}
+
+.todolist .done .todo-title {
+	font-style: italic;
+	color: var(--bs-success);
+	text-decoration: line-through;
+}
+
+.todolist .todo-delete {
+	cursor: pointer;
+	margin-left: 0.5em;
+}
