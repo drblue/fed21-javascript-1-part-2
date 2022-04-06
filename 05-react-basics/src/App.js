@@ -12,12 +12,7 @@ const App = () => {
 	const [salary, setSalary] = useState(10)
 
 	const handleButtonClick = () => {
-		console.log("Clicks before change:", clicks)
-		setClicks( prevClicks => prevClicks + 1 )  // prevClicks = 0    return 1
-		console.log("Clicks after change:", clicks)
-
-		setClicks( prevClicks => prevClicks + 1 )  // prevClicks = 1    return 2
-		console.log("Clicks after second change:", clicks)
+		setClicks(prevClicks => prevClicks + 1)
 	}
 
 	const changeSalary = (amount) => {
@@ -27,6 +22,11 @@ const App = () => {
 		}
 
 		setSalary(salary + amount)
+	}
+
+	const addLike = (post) => {
+		post.likes++
+		setPosts(posts)
 	}
 
 	return (
@@ -85,6 +85,10 @@ const App = () => {
 						(
 							<li key={index}>
 								{post.title} ({post.likes})
+								<button
+									className="btn btn-success btn-sm"
+									onClick={() => addLike(post)}
+								>👍🏻</button>
 							</li>
 						)
 					)
