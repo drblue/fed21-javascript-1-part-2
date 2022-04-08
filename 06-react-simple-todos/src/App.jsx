@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css';
 
 const App = () => {
@@ -33,9 +33,18 @@ const App = () => {
 		setNewTodoTitle('')
 	}
 
-	console.log("Filtering todos...")
+	// console.log("Filtering todos...")
 	const unfinishedTodos = todos.filter(todo => !todo.completed)
 	const finishedTodos = todos.filter(todo => todo.completed)
+
+	// Our first side-effect
+	useEffect(() => {
+		// This will be executed _after_ *EACH* render
+		console.log("Updating page title...")
+		document.title = `${finishedTodos.length}/${todos.length} completed`
+	}, [todos])
+
+	console.log("I'm rendering...")
 
 	return (
 		<div className="App container">
