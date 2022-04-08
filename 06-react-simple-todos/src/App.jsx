@@ -57,52 +57,56 @@ const App = () => {
 				</form>
 			</div>
 
-			<ul className="todolist">
-				{
-					todos.filter(todo => !todo.completed).map((todo, index) =>
-						(
-							<li className={todo.completed ? 'done' : ''} key={index}>
-								<span
-									className="todo-title"
-									onClick={() => toggleTodo(todo)}
-								>
-									{todo.title}
-								</span>
+			{todos.length > 0 && (
+				<>
+					<ul className="todolist">
+						{
+							todos.filter(todo => !todo.completed).map((todo, index) =>
+								(
+									<li className={todo.completed ? 'done' : ''} key={index}>
+										<span
+											className="todo-title"
+											onClick={() => toggleTodo(todo)}
+										>
+											{todo.title}
+										</span>
 
-								<span
-									className="todo-delete"
-									onClick={() => deleteTodo(todo)}
-								>🗑</span>
-							</li>
-						)
-					)
-				}
-			</ul>
+										<span
+											className="todo-delete"
+											onClick={() => deleteTodo(todo)}
+										>🗑</span>
+									</li>
+								)
+							)
+						}
+					</ul>
 
-			<h2>Completed todos</h2>
-			<ul className="todolist">
-				{
-					todos.filter(todo => todo.completed).map((todo, index) =>
-						(
-							<li className={todo.completed ? 'done' : ''} key={index}>
-								<span
-									className="todo-title"
-									onClick={() => toggleTodo(todo)}
-								>
-									{todo.title}
-								</span>
+					<h2>Completed todos</h2>
+					<ul className="todolist">
+						{
+							todos.filter(todo => todo.completed).map((todo, index) =>
+								(
+									<li className={todo.completed ? 'done' : ''} key={index}>
+										<span
+											className="todo-title"
+											onClick={() => toggleTodo(todo)}
+										>
+											{todo.title}
+										</span>
 
-								<span
-									className="todo-delete"
-									onClick={() => deleteTodo(todo)}
-								>🗑</span>
-							</li>
-						)
-					)
-				}
-			</ul>
+										<span
+											className="todo-delete"
+											onClick={() => deleteTodo(todo)}
+										>🗑</span>
+									</li>
+								)
+							)
+						}
+					</ul>
 
-			<p className="status">{todos.filter(todo => todo.completed).length} av {todos.length} todos avklarade.</p>
+					<p className="status">{todos.filter(todo => todo.completed).length} av {todos.length} todos avklarade.</p>
+				</>
+			)}
 		</div>
 	)
 }
