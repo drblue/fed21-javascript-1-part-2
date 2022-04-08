@@ -33,6 +33,10 @@ const App = () => {
 		setNewTodoTitle('')
 	}
 
+	console.log("Filtering todos...")
+	const unfinishedTodos = todos.filter(todo => !todo.completed)
+	const finishedTodos = todos.filter(todo => todo.completed)
+
 	return (
 		<div className="App container">
 			<h1>React Simple Todos</h1>
@@ -59,10 +63,10 @@ const App = () => {
 
 			{todos.length > 0 && (
 				<>
-					{todos.filter(todo => !todo.completed).length > 0 && (
+					{unfinishedTodos.length > 0 && (
 						<ul className="todolist">
 							{
-								todos.filter(todo => !todo.completed).map((todo, index) =>
+								unfinishedTodos.map((todo, index) =>
 									(
 										<li className={todo.completed ? 'done' : ''} key={index}>
 											<span
@@ -83,12 +87,12 @@ const App = () => {
 						</ul>
 					)}
 
-					{todos.filter(todo => todo.completed).length > 0 && (
+					{finishedTodos.length > 0 && (
 						<>
 							<h2>Completed todos</h2>
 							<ul className="todolist">
 								{
-									todos.filter(todo => todo.completed).map((todo, index) =>
+									finishedTodos.map((todo, index) =>
 										(
 											<li className={todo.completed ? 'done' : ''} key={index}>
 												<span
@@ -110,7 +114,7 @@ const App = () => {
 						</>
 					)}
 
-					<p className="status">{todos.filter(todo => todo.completed).length} av {todos.length} todos avklarade.</p>
+					<p className="status">{finishedTodos.length} av {todos.length} todos avklarade.</p>
 				</>
 			)}
 		</div>
