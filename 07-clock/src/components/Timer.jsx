@@ -7,7 +7,7 @@ const Timer = () => {
 	const startTimer = () => {
 		const intervalId = setInterval(() => {
 			setTimeElapsed(prevTimeElapsed => prevTimeElapsed + 1)
-		}, 1000);
+		}, 10);
 
 		setTimerId(intervalId)
 	}
@@ -21,10 +21,13 @@ const Timer = () => {
 		setTimeElapsed(0)
 	}
 
+	const seconds = Math.floor(timeElapsed / 100).toString().padStart(2, 0)
+	const hundredths = (timeElapsed % 100).toString().padStart(2, 0)
+
 	return (
 		<div className="display-1 text-center">
 			<div className="time-elapsed">
-				<pre>{timeElapsed}</pre>
+				<pre>{seconds}.{hundredths}</pre>
 			</div>
 
 			<div className="btn-group" role="group">
