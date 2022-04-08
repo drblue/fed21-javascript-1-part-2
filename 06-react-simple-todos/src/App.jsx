@@ -8,6 +8,8 @@ const App = () => {
 		{ title: "Drink MOAR coffee", completed: false },
 		{ title: "Drink ALL THE coffee", completed: false },
 	])
+	const [unfinishedTodos, setUnfinishedTodos] = useState([])
+	const [finishedTodos, setFinishedTodos] = useState([])
 
 	// input state
 	const [newTodoTitle, setNewTodoTitle] = useState('')
@@ -33,18 +35,19 @@ const App = () => {
 		setNewTodoTitle('')
 	}
 
-	// console.log("Filtering todos...")
-	const unfinishedTodos = todos.filter(todo => !todo.completed)
-	const finishedTodos = todos.filter(todo => todo.completed)
+	// Derive unfinishedTodos and finishedTodos from todos state
+	useEffect(() => {
+		console.log("Filtering todos...")
+		setUnfinishedTodos(todos.filter(todo => !todo.completed))
+		setFinishedTodos(todos.filter(todo => todo.completed))
+	}, [todos])
 
 	// Our first side-effect
 	useEffect(() => {
 		// This will be executed _after_ *EACH* render
 		console.log("Updating page title...")
 		document.title = `${finishedTodos.length}/${todos.length} completed`
-	}, [todos])
-
-	console.log("I'm rendering...")
+	}, [finishedTodos, todos])
 
 	return (
 		<div className="App container">
