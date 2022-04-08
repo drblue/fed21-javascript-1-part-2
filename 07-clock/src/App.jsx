@@ -1,29 +1,25 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import Clock from './components/Clock';
 import './App.css';
 
 const App = () => {
-	const [time, setTime] = useState(() => {
-		return new Date().toLocaleTimeString()
-	})
+	const [showClock, setShowClock] = useState(false)
 
-	// This will only be executed when the component is mounted,
-	// and only AFTER the component has been rendered
-	useEffect(() => {
-		console.log("Starting timer...")
-
-		setInterval(() => {
-			// update time
-			const now = new Date().toLocaleTimeString()
-			console.log("tick", now)
-			setTime(now)
-		}, 1000)
-	}, [])
+	const toggleClock = () => {
+		setShowClock(!showClock)
+	}
 
 	return (
-		<div className="container">
-			<div className="display-1 text-center">
-				{time}
-			</div>
+		<div className="container text-center">
+			<button onClick={toggleClock} id="toggle-clock" className="btn btn-outline-light">
+				{showClock ? 'Hide clock' : 'Show clock'}
+			</button>
+
+			{showClock && (
+				<div id="clock-wrapper" className="mt-3">
+					<Clock />
+				</div>
+			)}
 		</div>
 	)
 }
