@@ -101,6 +101,8 @@ const App = () => {
 					)
 				}
 			</ul>
+
+			<p className="status">{todos.filter(todo => todo.completed).length} av {todos.length} todos avklarade.</p>
 		</div>
 	)
 }

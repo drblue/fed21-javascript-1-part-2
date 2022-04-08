@@ -31,3 +31,7 @@ hr {
 	cursor: pointer;
 	margin-left: 0.5em;
 }
+
+.status {
+	font-style: italic;
+}
