@@ -35,16 +35,24 @@ const App = () => {
 		setNewTodoTitle('')
 	}
 
-	// Derive unfinishedTodos and finishedTodos from todos state
+	// This will only be executed when the component is mounted,
+	// and only AFTER the component has been rendered
 	useEffect(() => {
+		console.log("I'm a newly mounted component 👶🏽")
+	}, [])
+
+	// This will only be executed if `todos` have changed since last render,
+	// and only AFTER the component has been rendered
+	useEffect(() => {
+		// Derive unfinishedTodos and finishedTodos from todos state
 		console.log("Filtering todos...")
 		setUnfinishedTodos(todos.filter(todo => !todo.completed))
 		setFinishedTodos(todos.filter(todo => todo.completed))
 	}, [todos])
 
-	// Our first side-effect
+	// This will only be executed if `finishedTodos` OR `todos` have changed since last render,
+	// and only AFTER the component has been rendered
 	useEffect(() => {
-		// This will be executed _after_ *EACH* render
 		console.log("Updating page title...")
 		document.title = `${finishedTodos.length}/${todos.length} completed`
 	}, [finishedTodos, todos])
