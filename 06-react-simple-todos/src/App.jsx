@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import AddNewTodoForm from './components/AddNewTodoForm'
 import TodoListItem from './components/TodoListItem'
 import './App.css'
 
@@ -12,9 +13,6 @@ const App = () => {
 	const [unfinishedTodos, setUnfinishedTodos] = useState([])
 	const [finishedTodos, setFinishedTodos] = useState([])
 
-	// input state
-	const [newTodoTitle, setNewTodoTitle] = useState('')
-
 	const toggleTodo = (todo) => {
 		todo.completed = !todo.completed
 		setTodos([...todos])
@@ -24,16 +22,8 @@ const App = () => {
 		setTodos(todos.filter(todo => todo !== clickedTodo))
 	}
 
-	const handleFormSubmit = e => {
-		// stop form from submitting
-		e.preventDefault()
-
-		// push a new todo to the todos state
-		const newTodo = { title: newTodoTitle, completed: false }
+	const handleAddNewTodo = (newTodo) => {
 		setTodos([...todos, newTodo])
-
-		// clear newTodoTitle state
-		setNewTodoTitle('')
 	}
 
 	// This will only be executed when the component is mounted,
@@ -63,23 +53,9 @@ const App = () => {
 			<h1>React Simple Todos</h1>
 
 			<div className="mb-3">
-				<form onSubmit={handleFormSubmit}>
-					<div className="input-group">
-						<input
-							type="text"
-							className="form-control"
-							placeholder="Todo title"
-							onChange={e => setNewTodoTitle(e.target.value)}
-							value={newTodoTitle}
-						/>
-						<button
-							type="submit"
-							className="btn btn-primary"
-						>
-							Create
-						</button>
-					</div>
-				</form>
+				<AddNewTodoForm
+					onAddNewTodo={handleAddNewTodo}
+				/>
 			</div>
 
 			{todos.length > 0 && (
