@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const AddNewTodoForm = ({ onAddNewTodo }) => {
 	// input state
 	const [newTodoTitle, setNewTodoTitle] = useState('')
+	// input reference
+	const newTodoTitleRef = useRef()
 
 	const handleSubmit = e => {
 		// stop form from submitting
@@ -16,6 +18,11 @@ const AddNewTodoForm = ({ onAddNewTodo }) => {
 		setNewTodoTitle('')
 	}
 
+	// focus on input field when component is mounted
+	useEffect(() => {
+		newTodoTitleRef.current.focus()
+	}, [])
+
 	return (
 		<form onSubmit={handleSubmit}>
 			<div className="input-group">
@@ -23,6 +30,7 @@ const AddNewTodoForm = ({ onAddNewTodo }) => {
 					type="text"
 					className="form-control"
 					placeholder="Todo title"
+					ref={newTodoTitleRef}
 					onChange={e => setNewTodoTitle(e.target.value)}
 					value={newTodoTitle}
 				/>
