@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import Salary from './components/Salary'
+import Counter from './components/Counter';
 import './App.css';
 
 const App = () => {
 	const [msg, setMsg] = useState("Hi mom, I'm stateful")
-	const [clicks, setClicks] = useState(0)
 	const [posts, setPosts] = useState([
 		{ title: "React Rocks 🤘🏻!", likes: 1337 },
 		{ title: "JSX Rocks Even Moar 🤘🏻!", likes: 42 },
@@ -13,10 +12,6 @@ const App = () => {
 
 	// input state
 	const [newPostTitle, setNewPostTitle] = useState('')
-
-	const handleButtonClick = () => {
-		setClicks(prevClicks => prevClicks + 1)
-	}
 
 	const addLike = (post) => {
 		post.likes++
@@ -45,9 +40,9 @@ const App = () => {
 
 			<h2>{msg}</h2>
 
-			<p>You have clicked the button {clicks} times.</p>
-
-			<button onClick={handleButtonClick} className="btn btn-success btn-lg">👆🏻 me!</button>
+			<Counter />
+			<Counter />
+			<Counter />
 
 			<button onClick={ () => { setMsg('Hi dad!') } } className="btn btn-warning btn-lg">Hi dad!</button>
 
