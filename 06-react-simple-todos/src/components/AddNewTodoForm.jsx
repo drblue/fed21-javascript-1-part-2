@@ -29,6 +29,7 @@ const AddNewTodoForm = ({ onAddNewTodo }) => {
 				<button
 					type="submit"
 					className="btn btn-primary"
+					disabled={!newTodoTitle.length}
 				>
 					Create
 				</button>
