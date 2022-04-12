@@ -1,16 +1,16 @@
-const TodoListItem = ({ todo }) => {
+const TodoListItem = ({ todo, onTitleClick, onDelete }) => {
 	return (
 		<li className={todo.completed ? 'done' : ''}>
 			<span
 				className="todo-title"
-				// onClick={() => toggleTodo(todo)}
+				onClick={() => onTitleClick(todo)}
 			>
 				{todo.title}
 			</span>
 
 			<span
 				className="todo-delete"
-				// onClick={() => deleteTodo(todo)}
+				onClick={() => onDelete(todo)}
 			>🗑</span>
 		</li>
 	)
