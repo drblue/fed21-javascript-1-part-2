@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import AddNewTodoForm from './components/AddNewTodoForm'
+import AlertInfo from './components/AlertInfo'
+import TodoList from './components/TodoList'
 import TodoListItem from './components/TodoListItem'
 import './App.css'
-import AlertInfo from './components/AlertInfo'
 
 const App = () => {
 	const [todos, setTodos] = useState([
@@ -62,18 +63,11 @@ const App = () => {
 			{todos.length > 0 && (
 				<>
 					{unfinishedTodos.length > 0 && (
-						<ul className="todolist">
-							{
-								unfinishedTodos.map((todo, index) =>
-									<TodoListItem
-										key={index}
-										onTitleClick={toggleTodo}
-										onDelete={deleteTodo}
-										todo={todo}
-									/>
-								)
-							}
-						</ul>
+						<TodoList
+							todos={unfinishedTodos}
+							onToggleTodo={toggleTodo}
+							onDeleteTodo={deleteTodo}
+						/>
 					)}
 					{unfinishedTodos.length === 0 && (
 						<AlertInfo>
@@ -86,18 +80,11 @@ const App = () => {
 					{finishedTodos.length > 0 && (
 						<>
 							<h2>Completed todos</h2>
-							<ul className="todolist">
-								{
-									finishedTodos.map((todo, index) =>
-										<TodoListItem
-											key={index}
-											onTitleClick={toggleTodo}
-											onDelete={deleteTodo}
-											todo={todo}
-										/>
-									)
-								}
-							</ul>
+							<TodoList
+								todos={finishedTodos}
+								onToggleTodo={toggleTodo}
+								onDeleteTodo={deleteTodo}
+							/>
 						</>
 					)}
 
