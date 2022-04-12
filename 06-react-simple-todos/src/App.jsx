@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import AddNewTodoForm from './components/AddNewTodoForm'
 import TodoListItem from './components/TodoListItem'
 import './App.css'
+import AlertInfo from './components/AlertInfo'
 
 const App = () => {
 	const [todos, setTodos] = useState([
@@ -74,6 +75,13 @@ const App = () => {
 							}
 						</ul>
 					)}
+					{unfinishedTodos.length === 0 && (
+						<AlertInfo>
+							<h2>Yeeehaaaaw!</h2>
+							<img src="https://c.tenor.com/cBcdBXtqL8UAAAAC/colin-mochrie-whos-awesome.gif" className="img-fluid" alt="You're awesome!"/>
+							<p>You got <strong>nothing</strong> to do.</p>
+						</AlertInfo>
+					)}
 
 					{finishedTodos.length > 0 && (
 						<>
@@ -94,6 +102,14 @@ const App = () => {
 					)}
 
 					<p className="status">{finishedTodos.length} av {todos.length} todos avklarade.</p>
+				</>
+			)}
+
+			{todos.length === 0 && (
+				<>
+					<AlertInfo>
+						Move along people, nothing to see here.
+					</AlertInfo>
 				</>
 			)}
 		</div>
