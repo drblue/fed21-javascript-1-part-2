@@ -6,12 +6,7 @@ import TodoListItem from './components/TodoListItem'
 import './App.css'
 
 const App = () => {
-	const [todos, setTodos] = useState([
-		{ title: "Make coffee", completed: true },
-		{ title: "Drink coffee", completed: false },
-		{ title: "Drink MOAR coffee", completed: false },
-		{ title: "Drink ALL THE coffee", completed: false },
-	])
+	const [todos, setTodos] = useState([])
 	const [unfinishedTodos, setUnfinishedTodos] = useState([])
 	const [finishedTodos, setFinishedTodos] = useState([])
 
@@ -31,7 +26,13 @@ const App = () => {
 	// This will only be executed when the component is mounted,
 	// and only AFTER the component has been rendered
 	useEffect(() => {
-		console.log("I'm a newly mounted component 👶🏽")
+		const localStorageTodos = localStorage.getItem('todos')
+
+		const storedTodos = localStorageTodos
+			? JSON.parse(localStorageTodos)
+			: []
+
+		setTodos(storedTodos)
 	}, [])
 
 	// This will only be executed if `todos` have changed since last render,
