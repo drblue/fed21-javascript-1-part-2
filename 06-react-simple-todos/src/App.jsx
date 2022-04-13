@@ -5,7 +5,13 @@ import TodoList from './components/TodoList'
 import './App.css'
 
 const App = () => {
-	const [todos, setTodos] = useState([])
+	const [todos, setTodos] = useState(() => {
+		const storedTodos = JSON.parse(localStorage.getItem('todos'))
+
+		return storedTodos
+			? storedTodos
+			: []
+	})
 	const [unfinishedTodos, setUnfinishedTodos] = useState([])
 	const [finishedTodos, setFinishedTodos] = useState([])
 
@@ -23,16 +29,6 @@ const App = () => {
 	const handleAddNewTodo = (newTodo) => {
 		setTodos([...todos, newTodo])
 	}
-
-	// This will only be executed when the component is mounted,
-	// and only AFTER the component has been rendered
-	useEffect(() => {
-		const storedTodos = JSON.parse(localStorage.getItem('todos'))
-		if (storedTodos) {
-			console.log("Got todos from localStorage", storedTodos)
-			setTodos(storedTodos)
-		}
-	}, [])
 
 	// This will only be executed if `todos` have changed since last render,
 	// and only AFTER the component has been rendered
