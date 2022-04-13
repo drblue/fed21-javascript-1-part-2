@@ -15,8 +15,6 @@ const App = () => {
 	const [unfinishedTodos, setUnfinishedTodos] = useState([])
 	const [finishedTodos, setFinishedTodos] = useState([])
 
-	console.log( { todos } )
-
 	const toggleTodo = (todo) => {
 		todo.completed = !todo.completed
 		setTodos([...todos])
