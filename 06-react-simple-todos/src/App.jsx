@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import AddNewTodoForm from './components/AddNewTodoForm'
 import AlertInfo from './components/AlertInfo'
 import TodoList from './components/TodoList'
-import TodoListItem from './components/TodoListItem'
 import './App.css'
 
 const App = () => {
