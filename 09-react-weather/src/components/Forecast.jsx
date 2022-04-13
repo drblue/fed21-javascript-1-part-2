@@ -1,5 +1,6 @@
 import React from 'react'
-import forecastBanner from '../assets/images/forecast-banner.png'
+import dayBanner from '../assets/images/day.svg'
+import nightBanner from '../assets/images/night.svg'
 
 const Forecast = ({ data }) => {
 	if (data.cod !== 200) {
@@ -10,11 +11,16 @@ const Forecast = ({ data }) => {
 		)
 	}
 
+	const now = Math.round(Date.now() / 1000)
+	const banner = now > data.sys.sunrise && now < data.sys.sunset
+		? dayBanner
+		: nightBanner
+
 	return (
 		<div id="forecast">
 			<div className="card">
 
-				<img src={forecastBanner} className="card-img-top" alt="Daytime, nighttime, daytime, nighttime"/>
+				<img src={banner} className="card-img-top" alt="Daytime, nighttime, daytime, nighttime"/>
 
 				<div className="card-body">
 					<h5 className="card-title" id="location">
