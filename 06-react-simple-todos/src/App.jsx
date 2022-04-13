@@ -9,6 +9,8 @@ const App = () => {
 	const [unfinishedTodos, setUnfinishedTodos] = useState([])
 	const [finishedTodos, setFinishedTodos] = useState([])
 
+	console.log( { todos } )
+
 	const toggleTodo = (todo) => {
 		todo.completed = !todo.completed
 		setTodos([...todos])
@@ -25,20 +27,21 @@ const App = () => {
 	// This will only be executed when the component is mounted,
 	// and only AFTER the component has been rendered
 	useEffect(() => {
-		const localStorageTodos = localStorage.getItem('todos')
-
-		const storedTodos = localStorageTodos
-			? JSON.parse(localStorageTodos)
-			: []
-
-		setTodos(storedTodos)
+		const storedTodos = JSON.parse(localStorage.getItem('todos'))
+		if (storedTodos) {
+			console.log("Got todos from localStorage", storedTodos)
+			setTodos(storedTodos)
+		}
 	}, [])
 
 	// This will only be executed if `todos` have changed since last render,
 	// and only AFTER the component has been rendered
 	useEffect(() => {
+		// Save new todos state to localStorage
+		console.log("Updating localStorage with new todos", todos)
+		localStorage.setItem('todos', JSON.stringify(todos))
+
 		// Derive unfinishedTodos and finishedTodos from todos state
-		console.log("Filtering todos...")
 		setUnfinishedTodos(todos.filter(todo => !todo.completed))
 		setFinishedTodos(todos.filter(todo => todo.completed))
 	}, [todos])
@@ -46,7 +49,6 @@ const App = () => {
 	// This will only be executed if `finishedTodos` OR `todos` have changed since last render,
 	// and only AFTER the component has been rendered
 	useEffect(() => {
-		console.log("Updating page title...")
 		document.title = `${finishedTodos.length}/${todos.length} completed`
 	}, [finishedTodos, todos])
 
