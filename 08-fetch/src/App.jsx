@@ -2,8 +2,30 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 const App = () => {
-	const [resource, setResource] = useState('posts')
+	const [resource, setResource] = useState()
 	const [data, setData] = useState()
+
+	useEffect(() => {
+		if (!resource) {
+			return
+		}
+
+		// declare function
+		const fetchResource = async () => {
+			// fetch resource
+			const res = await fetch(`https://jsonplaceholder.typicode.com/${resource}`)
+
+			// parse response as json
+			const resourceData = await res.json()
+
+			// update data state with resource data
+			setData(resourceData)
+		}
+
+		// call function
+		fetchResource()
+
+	}, [resource])
 
 	return (
 		<div className="App container">
@@ -22,7 +44,7 @@ const App = () => {
 					<p>There are {data.length} {resource}.</p>
 					<ol>
 						{data.map(item => (
-							<li>{item.title}</li>
+							<li key={item.id}>{item.title}</li>
 						))}
 					</ol>
 				</>
