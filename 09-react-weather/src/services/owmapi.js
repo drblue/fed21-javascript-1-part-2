@@ -2,7 +2,7 @@
  * Open Weather Map API
  */
 
-const API_KEY = "4e364db2279ef1ae74eb667a7f5e2f90"
+const API_KEY = process.env.REACT_APP_OWM_API_KEY
 const BASE_URL = "https://api.openweathermap.org/data/2.5"
 
 /**
