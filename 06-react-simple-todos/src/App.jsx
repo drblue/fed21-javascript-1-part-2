@@ -16,17 +16,19 @@ const App = () => {
 		setTodos(data)
 	}
 
-	const toggleTodo = (todo) => {
-		todo.completed = !todo.completed
-		setTodos([...todos])
+	// Create a new todo in the api
+	const createTodo = async (newTodo) => {
+		await TodosAPI.createTodo(newTodo)
+		getTodos()
 	}
 
 	const deleteTodo = (clickedTodo) => {
 		setTodos(todos.filter(todo => todo !== clickedTodo))
 	}
 
-	const handleAddNewTodo = (newTodo) => {
-		setTodos([...todos, newTodo])
+	const toggleTodo = (todo) => {
+		todo.completed = !todo.completed
+		setTodos([...todos])
 	}
 
 	// Get todos from api when component is first mounted
@@ -54,7 +56,7 @@ const App = () => {
 
 			<div className="mb-3">
 				<AddNewTodoForm
-					onAddNewTodo={handleAddNewTodo}
+					onAddNewTodo={createTodo}
 				/>
 			</div>
 
