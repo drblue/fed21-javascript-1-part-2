@@ -13,12 +13,12 @@
     {
       "id": 3,
       "title": "Drink MOAR coffee",
-      "completed": false
+      "completed": true
     },
     {
       "id": 4,
       "title": "Drink ALL THE coffee",
-      "completed": false
+      "completed": true
     }
   ]
 }

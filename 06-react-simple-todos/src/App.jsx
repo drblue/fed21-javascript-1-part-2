@@ -28,9 +28,12 @@ const App = () => {
 		getTodos()
 	}
 
-	const toggleTodo = (todo) => {
-		todo.completed = !todo.completed
-		setTodos([...todos])
+	// Toggle the completed status of a todo in the api
+	const toggleTodo = async (todo) => {
+		await TodosAPI.updateTodo(todo.id, {
+			completed: !todo.completed
+		})
+		getTodos()
 	}
 
 	// Get todos from api when component is first mounted
