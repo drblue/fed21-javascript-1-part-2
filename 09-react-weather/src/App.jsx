@@ -19,6 +19,7 @@ const App = () => {
 
 		const fetchData = async () => {
 			const data = await getCurrentWeather(location)
+			console.log(data)
 
 			// update currentWeather state with data
 			setCurrentWeather(data)
