@@ -22,8 +22,10 @@ const App = () => {
 		getTodos()
 	}
 
-	const deleteTodo = (clickedTodo) => {
-		setTodos(todos.filter(todo => todo !== clickedTodo))
+	// Delete a todo in the api
+	const deleteTodo = async (todo) => {
+		await TodosAPI.deleteTodo(todo.id)
+		getTodos()
 	}
 
 	const toggleTodo = (todo) => {
