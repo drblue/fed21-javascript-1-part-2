@@ -2,18 +2,19 @@ import { useEffect, useState } from 'react'
 import AddNewTodoForm from './components/AddNewTodoForm'
 import AlertInfo from './components/AlertInfo'
 import TodoList from './components/TodoList'
+import TodosAPI from './services/TodosAPI'
 import './App.css'
 
 const App = () => {
-	const [todos, setTodos] = useState(() => {
-		const storedTodos = JSON.parse(localStorage.getItem('todos'))
-
-		return storedTodos
-			? storedTodos
-			: []
-	})
+	const [todos, setTodos] = useState([])
 	const [unfinishedTodos, setUnfinishedTodos] = useState([])
 	const [finishedTodos, setFinishedTodos] = useState([])
+
+	// Get todos from api
+	const getTodos = async () => {
+		const data = await TodosAPI.getTodos()
+		setTodos(data)
+	}
 
 	const toggleTodo = (todo) => {
 		todo.completed = !todo.completed
@@ -28,13 +29,14 @@ const App = () => {
 		setTodos([...todos, newTodo])
 	}
 
+	// Get todos from api when component is first mounted
+	useEffect(() => {
+		getTodos()
+	}, [])
+
 	// This will only be executed if `todos` have changed since last render,
 	// and only AFTER the component has been rendered
 	useEffect(() => {
-		// Save new todos state to localStorage
-		console.log("Updating localStorage with new todos", todos)
-		localStorage.setItem('todos', JSON.stringify(todos))
-
 		// Derive unfinishedTodos and finishedTodos from todos state
 		setUnfinishedTodos(todos.filter(todo => !todo.completed))
 		setFinishedTodos(todos.filter(todo => todo.completed))
