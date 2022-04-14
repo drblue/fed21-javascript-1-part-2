@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import dayBanner from '../assets/images/day.svg'
 import nightBanner from '../assets/images/night.svg'
 
@@ -51,13 +52,11 @@ const Forecast = ({ data }) => {
 						))}
 					</ul>
 
-					{/*
 					<p className="text-muted small">
-						<span title="YYYY-MM-DD HH:mm:ss">
-							HUMAN_TIME
+						<span title={moment.unix(data.dt).format('YYYY-MM-DD HH:mm:ss')}>
+							{moment.unix(data.dt).fromNow()}
 						</span>
 					</p>
-					*/}
 				</div>
 
 			</div>
