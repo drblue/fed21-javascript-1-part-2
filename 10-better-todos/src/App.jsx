@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container'
-import { Link, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
+import HomePage from './pages/HomePage'
 import TodosPage from './pages/TodosPage'
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
@@ -11,11 +12,9 @@ const App = () => {
 		<div id="App">
 			<Navigation />
 
-			<Container>
+			<Container className="py-3">
 				<Routes>
-					<Route path="/" element={(
-						<p>Welcome home. Go to <Link to="/todos">todos</Link>.</p>
-					)} />
+					<Route path="/" element={<HomePage />} />
 					<Route path="/todos" element={<TodosPage />} />
 				</Routes>
 			</Container>
