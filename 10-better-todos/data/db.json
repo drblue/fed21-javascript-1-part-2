@@ -1,24 +1,19 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Make coffee",
-      "completed": true
+      "title": "Learn React Bootstrap",
+      "completed": false,
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Drink coffee",
-      "completed": true
+      "title": "Learn React Router",
+      "completed": false,
+      "id": 2
     },
     {
-      "id": 3,
-      "title": "Drink MOAR coffee",
-      "completed": true
-    },
-    {
-      "id": 4,
-      "title": "Drink ALL THE coffee",
-      "completed": true
+      "title": "Learn stuff",
+      "completed": false,
+      "id": 3
     }
   ]
 }

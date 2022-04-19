@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import Container from 'react-bootstrap/Container'
 import AddNewTodoForm from './components/AddNewTodoForm'
 import AlertInfo from './components/AlertInfo'
 import TodoList from './components/TodoList'
 import TodosAPI from './services/TodosAPI'
+import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 
 const App = () => {
@@ -56,7 +58,7 @@ const App = () => {
 	}, [finishedTodos, todos])
 
 	return (
-		<div className="App container">
+		<Container id="App">
 			<h1>React Simple Todos</h1>
 
 			<div className="mb-3">
@@ -104,7 +106,7 @@ const App = () => {
 					</AlertInfo>
 				</>
 			)}
-		</div>
+		</Container>
 	)
 }
 
