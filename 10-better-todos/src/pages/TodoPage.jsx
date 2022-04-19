@@ -7,12 +7,21 @@ const TodoPage = () => {
 	const [todo, setTodo] = useState()
 	const { id } = useParams()
 
+	const getTodo = async (id) => {
+		const data = await TodosAPI.getTodo(id)
+		setTodo(data)
+	}
+
+	// Toggle the completed status of a todo in the api
+	const toggleTodo = async () => {
+		await TodosAPI.updateTodo(id, {
+			completed: !todo.completed
+		})
+		getTodo(id)
+	}
+
 	useEffect(() => {
-		const getTodo = async () => {
-			const data = await TodosAPI.getTodo(id)
-			setTodo(data)
-		}
-		getTodo()
+		getTodo(id)
 	}, [id])
 
 	if (!todo) {
@@ -25,7 +34,7 @@ const TodoPage = () => {
 
 			<p><strong>Status:</strong> {todo.completed ? 'Completed' : 'Not completed'}</p>
 
-			<Button variant="success">Toggle</Button>
+			<Button variant="success" onClick={toggleTodo}>Toggle</Button>
 			<Button variant="warning">Edit</Button>
 		</div>
 	)

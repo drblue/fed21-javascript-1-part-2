@@ -7,13 +7,18 @@
     },
     {
       "title": "Learn React Router",
-      "completed": false,
+      "completed": true,
       "id": 2
     },
     {
       "title": "Learn stuff",
-      "completed": false,
+      "completed": true,
       "id": 3
+    },
+    {
+      "title": "Learn about Components",
+      "completed": false,
+      "id": 4
     }
   ]
 }
