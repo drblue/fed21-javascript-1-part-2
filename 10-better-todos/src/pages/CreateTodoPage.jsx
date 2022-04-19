@@ -1,14 +1,20 @@
 import { useState } from 'react'
 import Alert from 'react-bootstrap/Alert'
+import { useNavigate } from 'react-router-dom'
 import AddNewTodoForm from "../components/AddNewTodoForm"
 import TodosAPI from "../services/TodosAPI"
 
 const CreateTodoPage = () => {
 	const [success, setSuccess] = useState()
+	const navigate = useNavigate()
 
 	// Create a new todo in the api
 	const createTodo = async (newTodo) => {
 		const res = await TodosAPI.createTodo(newTodo)
+
+		setTimeout(() => {
+			navigate('/todos')
+		}, 2000)
 
 		if (res) {
 			setSuccess(true)
