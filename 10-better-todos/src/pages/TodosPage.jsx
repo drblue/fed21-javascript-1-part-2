@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
-import AddNewTodoForm from '../components/AddNewTodoForm'
 import TodosAPI from '../services/TodosAPI'
 
 const TodosPage = () => {
@@ -11,12 +10,6 @@ const TodosPage = () => {
 	const getTodos = async () => {
 		const data = await TodosAPI.getTodos()
 		setTodos(data)
-	}
-
-	// Create a new todo in the api
-	const createTodo = async (newTodo) => {
-		await TodosAPI.createTodo(newTodo)
-		getTodos()
 	}
 
 	/*
@@ -35,12 +28,6 @@ const TodosPage = () => {
 	return (
 		<>
 			<h1>Todos</h1>
-
-			<div className="mb-3">
-				<AddNewTodoForm
-					onAddNewTodo={createTodo}
-				/>
-			</div>
 
 			{todos.length > 0 && (
 				<ListGroup className="todolist">

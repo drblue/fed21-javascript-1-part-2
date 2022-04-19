@@ -19,6 +19,16 @@
       "title": "Learn about Components",
       "completed": false,
       "id": 4
+    },
+    {
+      "title": "Drink tea",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "title": "Create todo",
+      "completed": false,
+      "id": 6
     }
   ]
 }
