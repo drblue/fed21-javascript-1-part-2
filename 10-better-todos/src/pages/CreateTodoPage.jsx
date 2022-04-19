@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Alert from 'react-bootstrap/Alert'
+import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom'
 import AddNewTodoForm from "../components/AddNewTodoForm"
 import TodosAPI from "../services/TodosAPI"
@@ -37,6 +38,10 @@ const CreateTodoPage = () => {
 			{success === false && (
 				<Alert variant="warning" className="mt-3">Todo could not be created</Alert>
 			)}
+
+			<div className="mt-4">
+				<Button variant="secondary" onClick={() => navigate(-1)}>Go back</Button>
+			</div>
 		</>
 	)
 }
