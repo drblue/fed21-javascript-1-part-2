@@ -5,6 +5,8 @@ import axios from 'axios'
 
 const BASE_URL = 'http://localhost:3001'
 
+const sleep = async delay => new Promise(r => setTimeout(r, delay))
+
 /**
  * Get all todos
  */
@@ -18,6 +20,7 @@ const getTodos = async () => {
  */
 const getTodo = async (id) => {
 	const res = await axios.get(`${BASE_URL}/todos/${id}`)
+	// await sleep(1500)
 	return res.data
 }
 
