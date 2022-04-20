@@ -16,6 +16,14 @@ const EditTodoPage = () => {
 		setNewTitle(data.title)
 	}
 
+	const handleDelete = async () => {
+		// send request to API to delete the todo
+		await TodosAPI.deleteTodo(id)
+
+		// navigate user to `/todos`
+		navigate('/todos')
+	}
+
 	const handleSubmit = async e => {
 		e.preventDefault()
 
@@ -54,7 +62,7 @@ const EditTodoPage = () => {
 
 				<div className="d-flex justify-content-between">
 					<Button variant="success" type="submit" disabled={!newTitle.length}>Save</Button>
-					<Button variant="danger">Delete</Button>
+					<Button variant="danger" onClick={handleDelete}>Delete</Button>
 				</div>
 			</Form>
 
