@@ -5,6 +5,7 @@ import axios from 'axios'
 
 const BASE_URL = 'http://localhost:3001'
 
+// eslint-disable-next-line no-unused-vars
 const sleep = async delay => new Promise(r => setTimeout(r, delay))
 
 /**
