@@ -6,9 +6,17 @@ import TodosAPI from '../services/TodosAPI'
 const TodosPage = () => {
 	const [todos, setTodos] = useState([])
 
-	// Get todos from api
 	const getTodos = async () => {
+		// Get todos from api
 		const data = await TodosAPI.getTodos()
+
+		// sort alphabetically by title
+		data.sort((a,b) => a.title.localeCompare(b.title))
+
+		// sort by completed status
+		data.sort((a,b) => a.completed - b.completed)
+
+		// update todos state
 		setTodos(data)
 	}
 

@@ -2,18 +2,28 @@
   "todos": [
     {
       "title": "Learn React Router",
-      "completed": true,
+      "completed": false,
       "id": 2
     },
     {
       "title": "Learn about Components",
-      "completed": false,
+      "completed": true,
       "id": 4
     },
     {
       "title": "Components are my friends",
       "completed": false,
       "id": 9
+    },
+    {
+      "title": "Do stuff",
+      "completed": false,
+      "id": 10
+    },
+    {
+      "title": "Done stuff",
+      "completed": true,
+      "id": 11
     }
   ]
 }
