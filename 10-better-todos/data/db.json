@@ -39,6 +39,11 @@
       "title": "Timeout for everyone!",
       "completed": false,
       "id": 8
+    },
+    {
+      "title": "Components are my friends",
+      "completed": false,
+      "id": 9
     }
   ]
 }
