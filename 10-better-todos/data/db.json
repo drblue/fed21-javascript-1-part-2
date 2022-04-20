@@ -1,39 +1,14 @@
 {
   "todos": [
     {
-      "title": "Learn React Bootstrap",
-      "completed": true,
-      "id": 1
-    },
-    {
       "title": "Learn React Router",
       "completed": true,
       "id": 2
     },
     {
-      "title": "Learn stuff",
-      "completed": true,
-      "id": 3
-    },
-    {
       "title": "Learn about Components",
       "completed": false,
       "id": 4
-    },
-    {
-      "title": "Look ma, I can edit my todos",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "title": "Learn all about useNavigate",
-      "completed": false,
-      "id": 7
-    },
-    {
-      "title": "Timeout for everyone!",
-      "completed": false,
-      "id": 8
     },
     {
       "title": "Components are my friends",

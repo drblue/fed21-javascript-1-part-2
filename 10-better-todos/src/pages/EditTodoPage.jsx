@@ -17,6 +17,10 @@ const EditTodoPage = () => {
 	}
 
 	const handleDelete = async () => {
+		if (!window.confirm('U SURE BRO?!')) {
+			return
+		}
+
 		// send request to API to delete the todo
 		await TodosAPI.deleteTodo(id)
 
