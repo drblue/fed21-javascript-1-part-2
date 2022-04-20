@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import TodosAPI from '../services/TodosAPI'
 
 const TodoPage = () => {
@@ -35,7 +35,7 @@ const TodoPage = () => {
 			<p><strong>Status:</strong> {todo.completed ? 'Completed' : 'Not completed'}</p>
 
 			<Button variant="success" onClick={toggleTodo}>Toggle</Button>
-			<Button variant="warning">Edit</Button>
+			<Button variant="warning" as={Link} to={`/todos/${id}/edit`}>Edit</Button>
 		</div>
 	)
 }
