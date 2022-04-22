@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import ListGroup from 'react-bootstrap/ListGroup'
+import { search as HackerNews_search } from '../services/HackerNewsAPI'
 
 const SearchHackerNews = () => {
 	const [searchInput, setSearchInput] = useState('')
