@@ -7,8 +7,10 @@ import { search as HackerNewsAPI_search } from '../services/HackerNewsAPI'
 const SearchHackerNews = () => {
 	const [searchInput, setSearchInput] = useState('')
 	const [searchResult, setSearchResult] = useState(null)
+	const [page, setPage] = useState(0)
 	const [loading, setLoading] = useState(false)
 	const searchInputRef = useRef()
+	const queryRef = useRef()
 
 	const searchHackerNews = async (searchQuery, page = 0) => {
 		// set loading to true
@@ -30,9 +32,22 @@ const SearchHackerNews = () => {
 			return
 		}
 
+		// save searchInput to queryRef
+		queryRef.current = searchInput
+
 		// search HN
-		searchHackerNews(searchInput)
+		setPage(0)
+		searchHackerNews(searchInput, 0)
 	}
+
+	// react to changes in our page state
+	useEffect(() => {
+		if (!queryRef.current) {
+			return
+		}
+
+		searchHackerNews(queryRef.current, page)
+	}, [page])
 
 	return (
 		<>
@@ -78,12 +93,16 @@ const SearchHackerNews = () => {
 					<div className="d-flex justify-content-between align-items-center mt-4">
 						<div className="prev">
 							<Button
+								disabled={page === 0}
+								onClick={() => setPage(prevValue => prevValue - 1)}
 								variant="primary"
 							>Previous Page</Button>
 						</div>
-						<div className="page">PAGE</div>
+						<div className="page">{page + 1}</div>
 						<div className="next">
 							<Button
+								disabled={page + 1 >= searchResult.nbPages}
+								onClick={() => setPage(prevValue => prevValue + 1)}
 								variant="primary"
 							>Next Page</Button>
 						</div>
