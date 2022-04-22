@@ -2,12 +2,26 @@ import { useEffect, useState, useRef } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import ListGroup from 'react-bootstrap/ListGroup'
-import { search as HackerNews_search } from '../services/HackerNewsAPI'
+import { search as HackerNewsAPI_search } from '../services/HackerNewsAPI'
 
 const SearchHackerNews = () => {
 	const [searchInput, setSearchInput] = useState('')
-	const [loading, setLoading] = useState(true)
+	const [searchResult, setSearchResult] = useState(null)
+	const [loading, setLoading] = useState(false)
 	const searchInputRef = useRef()
+
+	const searchHackerNews = async (searchQuery, page = 0) => {
+		// set loading to true
+		setLoading(true)
+		setSearchResult(null)
+
+		// execute search
+		const data = await HackerNewsAPI_search(searchQuery, page)
+
+		// set loading to false
+		setSearchResult(data)
+		setLoading(false)
+	}
 
 	const handleSubmit = async e => {
 		e.preventDefault()
@@ -17,6 +31,7 @@ const SearchHackerNews = () => {
 		}
 
 		// search HN
+		searchHackerNews(searchInput)
 	}
 
 	return (
@@ -43,19 +58,19 @@ const SearchHackerNews = () => {
 
 			{loading && (<div className="mt-4">Loading...</div>)}
 
-			{true && (
+			{searchResult && (
 				<div className="search-result mt-4">
-					<p>Showing HITS search results for QUERY...</p>
+					<p>Showing {searchResult.nbHits} search results for {searchResult.query}...</p>
 
 					<ListGroup>
-						{[{}].map(hit => (
+						{searchResult.hits.map(hit => (
 							<ListGroup.Item
 								action
-								href={''}
-								key={''}
+								href={hit.url}
+								key={hit.objectID}
 							>
-								<h3>TITLE</h3>
-								<p className="text-muted small mb-0">Posted at CREATED_AT by AUTHOR</p>
+								<h3>{hit.title}</h3>
+								<p className="text-muted small mb-0">Posted at {hit.created_at} by {hit.author}</p>
 							</ListGroup.Item>
 						))}
 					</ListGroup>
