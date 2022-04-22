@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import ListGroup from 'react-bootstrap/ListGroup'
+import { useSearchParams } from 'react-router-dom'
 import { search as HackerNewsAPI_search } from '../services/HackerNewsAPI'
 
 const SearchHackerNews = () => {
@@ -9,8 +10,10 @@ const SearchHackerNews = () => {
 	const [searchResult, setSearchResult] = useState(null)
 	const [page, setPage] = useState(0)
 	const [loading, setLoading] = useState(false)
+	const [searchParams, setSearchParams] = useSearchParams()
 	const searchInputRef = useRef()
-	const queryRef = useRef()
+
+	const query = searchParams.get('query')
 
 	const searchHackerNews = async (searchQuery, page = 0) => {
 		// set loading to true
@@ -32,22 +35,24 @@ const SearchHackerNews = () => {
 			return
 		}
 
-		// save searchInput to queryRef
-		queryRef.current = searchInput
-
-		// search HN
+		// set page to 0
 		setPage(0)
-		searchHackerNews(searchInput, 0)
+
+		// set input value as query in URLSearchParams
+		setSearchParams({ query: searchInput })
 	}
 
 	// react to changes in our page state
 	useEffect(() => {
-		if (!queryRef.current) {
+		if (!query) {
+			setSearchInput('')
+			setSearchResult(null)
 			return
 		}
 
-		searchHackerNews(queryRef.current, page)
-	}, [page])
+		setSearchInput(query)
+		searchHackerNews(query, page)
+	}, [query, page])
 
 	return (
 		<>
