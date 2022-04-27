@@ -9,10 +9,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 
 const App = () => {
-	const { isDarkTheme } = useThemeContext()
+	const { getStyle } = useThemeContext()
 
 	return (
-		<div id="App" className={isDarkTheme() ? 'bg-dark text-light' : ''}>
+		<div id="App" className={getStyle()}>
 			<Navigation />
 
 			<Container className="py-3">
