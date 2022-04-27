@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container'
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import { useThemeContext } from './contexts/ThemeContextProvider'
+import FetchPage from './pages/FetchPage'
 import HomePage from './pages/HomePage'
 import SearchHackerNews from './pages/SearchHackerNews'
 import NotFound from './pages/NotFound'
@@ -18,6 +19,7 @@ const App = () => {
 			<Container className="py-3">
 				<Routes>
 					<Route path="/" element={<HomePage />} />
+					<Route path="/fetch" element={<FetchPage />} />
 					<Route path="/search" element={<SearchHackerNews />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
