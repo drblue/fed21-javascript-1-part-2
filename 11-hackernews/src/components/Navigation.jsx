@@ -1,9 +1,14 @@
+import { useContext } from 'react'
+import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { Link, NavLink } from 'react-router-dom'
+import { ThemeContext } from '../contexts/ThemeContextProvider'
 
 const Navigation = () => {
+	const { isDarkTheme, toggleTheme } = useContext(ThemeContext)
+
 	return (
 		<Navbar bg="dark" variant="dark" expand="md">
 			<Container>
@@ -13,6 +18,9 @@ const Navigation = () => {
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="ms-auto">
 						<Nav.Link as={NavLink} end to="/search">Search</Nav.Link>
+						<Button onClick={toggleTheme} variant="outline-secondary">
+							{isDarkTheme() ? '☀️' : '🌙'}
+						</Button>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
