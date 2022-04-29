@@ -4,23 +4,35 @@ import axios from 'axios'
 const useFetch = (initialUrl = null) => {
 	const [url, setUrl] = useState(initialUrl)
 	const [data, setData] = useState()
+	const [error, setError] = useState(null)
+	const [isError, setIsError] = useState(false)
 	const [isLoading, setIsLoading] = useState(false)
 
 	const getData = useCallback(async () => {
 		// tell everyone we're starting to load data
 		setIsLoading(true)
 
-		// request data from api
-		const response = await axios.get(url)
+		try {
+			// request data from api
+			const response = await axios.get(url)
 
-		// fake slow api 😴
-		await new Promise(r => setTimeout(r, 3000))
+			// fake slow api 😴
+			await new Promise(r => setTimeout(r, 3000))
 
-		// set response from api
-		setData(response.data)
+			// set response from api
+			setData(response.data)
 
-		// tell everyone we're done loading
-		setIsLoading(false)
+			// reset any previous error
+			setIsError(false)
+			setError(null)
+		} catch (err) {
+			setIsError(true)
+			setError(err)
+		} finally {
+			// tell everyone we're done loading
+			setIsLoading(false)
+		}
+
 	}, [url])
 
 	useEffect(() => {
@@ -34,7 +46,9 @@ const useFetch = (initialUrl = null) => {
 
 	return {
 		data,
+		error,
 		getData,
+		isError,
 		isLoading,
 		setUrl,
 	}
