@@ -2,7 +2,7 @@ import useFetch from '../hooks/useFetch'
 import Button from 'react-bootstrap/Button'
 
 const FetchPage = () => {
-	const { data, setUrl } = useFetch('https://api.chucknorris.io/jokes/random')
+	const { data, getData } = useFetch('https://api.chucknorris.io/jokes/random')
 
 	return (
 		<>
@@ -10,7 +10,7 @@ const FetchPage = () => {
 
 			{data && (<p className="display-3">{data.value}</p>)}
 
-			<Button variant="success">MOAR!!!</Button>
+			<Button variant="success" onClick={getData}>MOAR!!!</Button>
 		</>
 	)
 }
