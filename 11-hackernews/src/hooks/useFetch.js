@@ -17,7 +17,7 @@ const useFetch = (initialUrl = null) => {
 			const response = await axios.get(url)
 
 			// fake slow api 😴
-			await new Promise(r => setTimeout(r, 3000))
+			await new Promise(r => setTimeout(r, 1500))
 
 			// set response from api
 			setData(response.data)
