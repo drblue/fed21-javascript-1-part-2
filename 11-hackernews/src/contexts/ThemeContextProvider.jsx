@@ -1,5 +1,6 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext } from 'react'
 import classNames from 'classnames'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 export const ThemeContext = createContext()
 
@@ -8,7 +9,7 @@ export const useThemeContext = () => {
 }
 
 const ThemeContextProvider = ({ children }) => {
-	const [theme, setTheme] = useState('light')
+	const [theme, setTheme] = useLocalStorage('hn_theme', 'light')
 
 	const getStyle = () => {
 		return classNames({
