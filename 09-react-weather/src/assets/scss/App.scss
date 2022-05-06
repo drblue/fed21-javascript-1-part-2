@@ -1,3 +1,9 @@
+@import 'variables';
+
+* {
+	color: $textColor;
+}
+
 @import 'generic';
 @import 'forecast';
 @import 'search';

@@ -11,7 +11,7 @@ body,
 }
 
 body {
-	background-color: #efefef;
+	background-color: $bgColor;
 	background:
 		linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%),
 		url('../../../public/bg-image.jpg');
