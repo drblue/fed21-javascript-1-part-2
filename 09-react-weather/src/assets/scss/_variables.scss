@@ -1,2 +1,10 @@
-$bgColor: #ddd;
-$textColor: #888;
+@import 'colors';
+
+$bgColor:				$lightishGrey;
+$textColor:				$grey;
+
+$lineHeight:			1.5em;
+
+$heading-font-weight:	700;
+
+$border-radius:			4.67px;
