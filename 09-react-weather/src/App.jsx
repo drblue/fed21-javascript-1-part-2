@@ -32,8 +32,6 @@ const App = () => {
 		<div id="app" className="container">
 			<SearchCity onSearch={handleSearch} />
 
-			<button class="hk-btn-blue">Primary</button>
-
 			{currentWeather && <Forecast data={currentWeather} />}
 		</div>
 	)
