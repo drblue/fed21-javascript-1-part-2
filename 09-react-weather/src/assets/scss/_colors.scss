@@ -1,3 +1,14 @@
 $lightGrey:				#ddd;
 $lightishGrey:			#bbb;
 $grey:					#888;
+
+$hk-blue: #69b3e7;
+
+.hk-btn-blue {
+	background-color: $hk-blue;
+	color: scale-color($hk-blue, $lightness: -67%);
+
+	&:hover {
+		background-color: scale-color($hk-blue, $lightness: 25%);
+	}
+}
