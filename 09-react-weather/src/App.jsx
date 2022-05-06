@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Forecast from './components/Forecast'
 import SearchCity from './components/SearchCity'
 import { getCurrentWeather } from './services/owmapi'
-import './App.css'
+import './assets/scss/App.scss'
 
 const App = () => {
 	const [location, setLocation] = useState()
