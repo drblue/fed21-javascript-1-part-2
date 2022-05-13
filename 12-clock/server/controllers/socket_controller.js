@@ -2,7 +2,7 @@
  * Socket Controller
  */
 
-const debug = require('debug')('chat:socket_controller');
+const debug = require('debug')('clock:socket_controller');
 let io = null; // socket.io server instance
 
 /**
@@ -25,4 +25,9 @@ module.exports = function(socket, _io) {
 
 	// handle user disconnect
 	socket.on('disconnect', handleDisconnect);
+
+	// listen for hello
+	socket.on('hewwo', function() {
+		debug(`Client ${socket.id} said hello 😍`);
+	})
 }
