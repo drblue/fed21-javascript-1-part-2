@@ -1,0 +1,3 @@
+Remote Control -> [clock:start] -> Server -> [clock:start] -> *
+Remote Control -> [clock:stop]  -> Server -> [clock:stop]  -> *
+Remote Control -> [clock:reset] -> Server -> [clock:reset] -> *
