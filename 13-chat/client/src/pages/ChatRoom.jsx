@@ -64,6 +64,7 @@ const ChatRoom = () => {
 		// if no username, redirect them to the login page
 		if (!chatUsername) {
 			navigate('/')
+			return
 		}
 
 		// emit join request
